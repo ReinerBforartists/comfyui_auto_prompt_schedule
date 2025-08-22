@@ -1,0 +1,1111 @@
+{
+  "id": "78174f70-07ea-41cf-a257-1a3596918f7d",
+  "revision": 0,
+  "last_node_id": 73,
+  "last_link_id": 85,
+  "nodes": [
+    {
+      "id": 27,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        -34.21356201171875,
+        -190.4908905029297
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "EmptySD3LatentImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "width": true,
+            "height": true,
+            "batch_size": true
+          }
+        }
+      },
+      "widgets_values": [
+        1024,
+        576,
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 60,
+      "type": "DF_Text_Box",
+      "pos": [
+        -785.4776611328125,
+        -192.33578491210938
+      ],
+      "size": [
+        390.2306823730469,
+        114.83470153808594
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            81
+          ]
+        }
+      ],
+      "title": "Text Box - Style",
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "1.0.1",
+        "Node name for S&R": "DF_Text_Box",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "Text": true
+          }
+        }
+      },
+      "widgets_values": [
+        "comic, anime, sketchy fantasy comic concept art, loose dynamic brush strokes, bold expressive inking, energetic messy lines, painterly texture, strong colors, dramatic lighting,  epic fantasy scene, cinematic composition, raw unfinished digital painting style"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 30,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -785.4776611328125,
+        -381.961669921875
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            47
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            54,
+            79
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "models": [
+          {
+            "name": "flux1-dev-fp8.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true",
+            "directory": "checkpoints"
+          }
+        ],
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "ckpt_name": true
+          }
+        }
+      },
+      "widgets_values": [
+        "flux1-dev-fp8.safetensors"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 35,
+      "type": "FluxGuidance",
+      "pos": [
+        -34.21356201171875,
+        -41.51393508911133
+      ],
+      "size": [
+        211.60000610351562,
+        58
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 82
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            57
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "FluxGuidance",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "guidance": true
+          }
+        }
+      },
+      "widgets_values": [
+        3.5
+      ]
+    },
+    {
+      "id": 31,
+      "type": "KSampler",
+      "pos": [
+        -34.21356201171875,
+        62.09232711791992
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 47
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 57
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 55
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 51
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "seed": true,
+            "steps": true,
+            "cfg": true,
+            "sampler_name": true,
+            "scheduler": true,
+            "denoise": true
+          }
+        }
+      },
+      "widgets_values": [
+        455715279309841,
+        "randomize",
+        20,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        -34.21356201171875,
+        369.09600830078125
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 52
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 68,
+      "type": "MarkdownNote",
+      "pos": [
+        -1238.6683349609375,
+        -530.0955200195312
+      ],
+      "size": [
+        436.7804260253906,
+        254.62852478027344
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Model links",
+      "properties": {
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "This example workflow is based at the default Flux dev fp8 Comfy UI workflow from the Templates\n\n\n## Model links\n\n**diffusion model**\n\n- [flux1-dev-kontext_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors)\n\n**Model Storage Location**\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 diffusion_models/\n│   │   └── flux1-dev-kontext_fp8_scaled.safetensors\n\n```\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 67,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -771.1092529296875,
+        230.7433319091797
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "Number of lines: 44\nNumber of runs: 44"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 71,
+      "type": "Note",
+      "pos": [
+        -358.82293701171875,
+        426.2811584472656
+      ],
+      "size": [
+        271.639892578125,
+        88
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "Flux does not understand negative prompt. Leave the negative prompt empty."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 70,
+      "type": "Note",
+      "pos": [
+        -1320.943603515625,
+        -28.744647979736328
+      ],
+      "size": [
+        521.6504516601562,
+        239.36669921875
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "The conversion tool that turns a list of strings into something that the Prompt Schedule node can read and work with.\n\nYou can either paste in the text, or add an ABSOLUTE link to the file. Like C:\\Users\\myusername\\Documents\\prompting\\myprompt.txt. In this case the file in the file path gets used.\n\nThe node adds a keyframe for every line. Starting with zero. 0,1,2,3, etc. . So be careful with the prompt, ONE line per prompt.\n\nThe default multiplier value adds 1 to the keyframe values. It adds to the keyframes by 1, means you end in 0,1,2,3 and so on. Remember we start at Index 0. Not at 1.\nSo when you use a multiplier value of 3 then we have a keyframe row of 0,3,6,9 and so on.\n\nNote that the prompts does not blend over. The actual prompt remains valid until the next keyframe is reached. \n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "Note",
+      "pos": [
+        -1231.6585693359375,
+        253.3386993408203
+      ],
+      "size": [
+        425.0074462890625,
+        88
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "This Show Text is just debugging. To show if the result is as desired. It is the actual text that gets used in the Prompt Schedule node. And it helps you to choose the number of runs to run all keyframes."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 33,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -354.55816650390625,
+        360.4725036621094
+      ],
+      "size": [
+        375.5501403808594,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            55
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "text": true
+          }
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 43,
+      "type": "PrimitiveInt",
+      "pos": [
+        -361.6279296875,
+        -189.116943359375
+      ],
+      "size": [
+        293.59503173828125,
+        82.62091064453125
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            80
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "PrimitiveInt",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "value": true
+          }
+        }
+      },
+      "widgets_values": [
+        1,
+        "increment"
+      ],
+      "color": "#ff7f7f",
+      "bgcolor": "#ff6b6b"
+    },
+    {
+      "id": 34,
+      "type": "Note",
+      "pos": [
+        -368.1590576171875,
+        -361.8115234375
+      ],
+      "size": [
+        289.69012451171875,
+        91.91177368164062
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "IMPORTANT !!!\n\nALWAYS RESET THIS INT VALUE TO 0 BEFORE RERUN\nThis value determines with which keyframe the image generation starts."
+      ],
+      "color": "#ff7f7f",
+      "bgcolor": "#ff6b6b"
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        314.679443359375,
+        -228.5506134033203
+      ],
+      "size": [
+        420.2298278808594,
+        532.8200073242188
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "filename_prefix": true
+          }
+        }
+      },
+      "widgets_values": [
+        "firstrun/comfyUI"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "Note",
+      "pos": [
+        -1238.6683349609375,
+        -197.55149841308594
+      ],
+      "size": [
+        433.16668701171875,
+        125.08934783935547
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "The style\nYou can add the style of course to the single prompts too. And remove the style text. But that's a bit cumbersome with several prompts. So we separate it, and append it in the prompt schedule node."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 73,
+      "type": "Note",
+      "pos": [
+        -1391.792236328125,
+        -708.8572387695312
+      ],
+      "size": [
+        584.0505981445312,
+        130.0567169189453
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "How to",
+      "properties": {
+        "text": "",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "This workflow lets you create multiple images by multiple prompts at once. \nBy using the Prompt schedule node and a list of prompts as the input.\n\n- Prepare a list of prompts. Each prompt must be one line. Empty lines dose not count as a line.\n- Paste the text into the text field of the Auto Prompt Schedule node. \n- Turn the number of runs up to the number of prompts. Or double, triple etc. when you work with the multiplier higher than 1\n- Press Run"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 63,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -773.8665771484375,
+        359.9869689941406
+      ],
+      "size": [
+        392.3653564453125,
+        178.74473571777344
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 77
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "\"0\":\"A 35-year-old man with disheveled black hair, frayed hoodie, and sagging jeans slumps on a stained couch. The room is a chaotic single apartment littered with empty coffee cups, crumpled paper, and a flickering desk lamp casting long shadows over a half-finished spreadsheet.\",\n\"1\":\"A 50-year-old woman with sharp cheekbones, slicked-back silver hair, and a tailored blazer stands at the front of a fluorescent-lit office. Her arms are crossed as a crowd of stunned employees stares at a poster reading “Dance-Off: Infinite Coffee.”\",\n\"2\":\"A 35-year-old man with disheveled black hair, frayed hoodie, and sagging jeans stumbles backward in an empty conference room. His legs wobble like tree trunks under the harsh glare of a single overhead bulb as he kicks a chair into a pile of files.\",\n\"3\":\"A 28-year-old employee with neon-green sneakers and a tie-dye shirt freezes mid-laugh, eyes wide. Sunlight streams through blinds as she watches a man’s awkward “funeral march” at a team-building event, confetti falling in slow motion around them.\",\n\"4\":\"A 35-year-old man with disheveled black hair, pale face, and rumpled clothes lies on a hospital bed. A bored nurse scribbles notes while he stares at the ceiling. A flickering fluorescent light buzzes overhead as his hand trembles near a sign reading “Mild Existential Crisis.”\",\n\"5\":\"A tiny creature with iridescent body hair spins a web in midair above a kitchen counter. Sunlight floods through a window, casting golden specks over the scene as it performs a breakdance on a crumb-strewn surface.\",\n\"6\":\"A 35-year-old man with disheveled black hair and frayed hoodie crouches near the counter, his face lit by warm afternoon light. His eyes are wide, reflecting an expression caught between confusion and something almost like wonder as he watches a small arachnid’s acrobatics.\",\n\"7\":\"A cracked mirror on a dusty wall reflects a man with unshaven jawline and hunched posture. The room is bathed in soft golden hour light, shadows pooling under his feet as he stares at a tiny creature with iridescent body hair, its legs clicking like tiny drumsticks.\",\n\"8\":\"A small arachnid leaps into a backflip mid-web, its legs clicking like tiny drumsticks. Dust motes swirl in sunlight streaming through the window, creating a halo effect around its acrobatics on a crumb-strewn kitchen counter.\",\n\"9\":\"A cluttered desk fills the background, strewn with coffee-stained papers and a broken laptop. A man with disheveled black hair sits cross-legged on the floor, his frayed hoodie pooling around him. A single shaft of light pierces through dusty curtains, illuminating his face as he watches the tiny creature spin a web above an empty mug.\",\n\"10\":\"A 35-year-old man with disheveled black hair and sagging jeans stands in a dimly lit apartment, staring at a cracked mirror that reflects both his tired face and the iridescent shimmer of a small arachnid crawling along the glass. The room hums faintly with a broken fridge in the background.\",\n\"11\":\"A hospital corridor stretches into the distance, its linoleum floors reflecting pale light. A 35-year-old man with frayed hoodie shuffles forward, dragging his feet as a tiny iridescent arachnid clings to his shoulder, unnoticed by passing nurses.\",\n\"12\":\"A rain-soaked street glistens under a flickering streetlight. A 35-year-old man in sagging jeans and a hoodie trudges through puddles, his hair plastered to his forehead. On his hand, a small creature with shimmering body hair raises its legs like an orchestra conductor.\",\n\"13\":\"A cluttered office cubicle filled with sticky notes, empty mugs, and a monitor glowing with spreadsheets. A 35-year-old man with black hair slouches in a swivel chair. From the desk lamp, a tiny iridescent arachnid dangles by a thread, casting a dancing shadow across the keyboard.\",\n\"14\":\"A narrow alley between towering buildings, littered with trash bags and neon graffiti. A 35-year-old man with a frayed hoodie leans against a brick wall, smoking. Above him, a small arachnid with shimmering body hair weaves a glowing web that catches the neon light.\",\n\"15\":\"A library lit by the warm glow of green desk lamps. Dust floats in the air as a 35-year-old man with disheveled hair flips through an old book. Across the table, a tiny iridescent arachnid taps its legs rhythmically, as if keeping time with his turning pages.\",\n\"16\":\"A laundromat at midnight, machines rumbling. A 35-year-old man with sagging jeans sits on a plastic chair, staring blankly at spinning clothes. A small shimmering arachnid breakdances on top of a humming dryer, lit by fluorescent tubes.\",\n\"17\":\"A rooftop under a star-filled sky. A 35-year-old man in a frayed hoodie lies on his back, gazing upward. A tiny iridescent arachnid performs acrobatic flips along the edge of the roof, silhouetted against the moon.\",\n\"18\":\"A dimly lit basement cluttered with tools and cardboard boxes. A 35-year-old man with black hair tinkers with a broken radio. Nearby, a small arachnid with shimmering body hair spins a web between two rusty pipes, the strands vibrating like guitar strings.\",\n\"19\":\"A subway car rattling through tunnels, fluorescent lights flickering. A 35-year-old man with disheveled hoodie slouches in his seat. On the metal pole beside him, a tiny iridescent arachnid crawls upward, its movements mirrored in the smudged window.\",\n\"20\":\"A crowded diner at dawn, steam rising from coffee mugs. A 35-year-old man with sagging jeans and frayed hoodie sits in a booth, eyes half-shut. Across from him, a small arachnid with shimmering body hair taps on the Formica table like impatient fingers.\",\n\"21\":\"A deserted playground under orange streetlights. A 35-year-old man with disheveled hair pushes an empty swing slowly. On the chain, a tiny iridescent arachnid balances carefully, its body glowing faintly in the night.\",\n\"22\":\"A bathroom lit by a single bare bulb, mirror fogged with steam. A 35-year-old man in sagging jeans wipes his face with a towel. On the sink, a small shimmering arachnid performs a spin atop a toothpaste cap.\",\n\"23\":\"A cluttered recording studio filled with tangled cables and glowing equipment. A 35-year-old man in a frayed hoodie taps on a keyboard, lost in thought. On the mixing desk, a tiny iridescent arachnid dances to the blinking rhythm of LED lights.\",\n\"24\":\"A dusty attic filled with boxes and old clothes. A 35-year-old man with disheveled black hair opens a trunk. A shimmering arachnid leaps out, landing gracefully on a stack of yellowed newspapers, legs spread like a gymnast.\",\n\"25\":\"A candlelit church with cracked pews. A 35-year-old man in sagging jeans kneels at the altar, hands clasped. A small shimmering arachnid scuttles across the open Bible, illuminated by the flickering flame.\",\n\"26\":\"A rainy bus stop late at night. A 35-year-old man with hoodie pulled tight sits slumped on a bench. A tiny iridescent arachnid balances on the rim of the trash can beside him, its body glowing in the reflected streetlight.\",\n\"27\":\"A grocery store aisle under harsh neon lights. A 35-year-old man with sagging jeans stares at rows of cereal boxes. On a shelf edge, a small shimmering arachnid breakdances on a price tag.\",\n\"28\":\"A windswept beach under a gray sky. A 35-year-old man with disheveled hair stands barefoot at the shoreline. At his feet, a tiny iridescent arachnid skitters along the wet sand, leaving faint patterns washed away by waves.\",\n\"29\":\"A bedroom with curtains drawn shut, faint morning light seeping in. A 35-year-old man in a frayed hoodie lies sprawled across unmade sheets. On the nightstand, a small shimmering arachnid spins a web between a lamp and an alarm clock.\",\n\"30\":\"An abandoned warehouse with shattered windows. A 35-year-old man in sagging jeans walks through dust and debris. Above him, a shimmering arachnid swings gracefully on a thread, spotlighted by a shaft of sunlight.\",\n\"31\":\"A fast-food restaurant at closing time, chairs stacked on tables. A 35-year-old man in a frayed hoodie mops the floor. On the counter, a tiny iridescent arachnid flips across discarded ketchup packets.\",\n\"32\":\"A cinema lobby filled with glowing posters. A 35-year-old man with disheveled hair buys popcorn from a tired clerk. On the popcorn machine, a small shimmering arachnid scuttles across the glass, its shadow magnified by the light inside.\",\n\"33\":\"A parking garage lit by cold fluorescent tubes. A 35-year-old man in sagging jeans leans against a pillar. Nearby, a tiny iridescent arachnid dangles from a thread, swinging like a pendulum above an oil stain.\",\n\"34\":\"A crowded train station, the announcement board flickering. A 35-year-old man with frayed hoodie waits on a bench. At his feet, a shimmering arachnid performs spins across the tiled floor, unnoticed by commuters.\",\n\"35\":\"A forest clearing at dusk, fireflies glowing. A 35-year-old man with disheveled hair sits on a fallen log. A small iridescent arachnid twirls on a mushroom cap, lit by soft bioluminescence.\",\n\"36\":\"A gas station at midnight, neon sign buzzing. A 35-year-old man in sagging jeans fills his car. On the pump handle, a tiny shimmering arachnid balances precariously, illuminated by the harsh blue light.\",\n\"37\":\"A classroom filled with dusty chalkboards and overturned desks. A 35-year-old man with disheveled hair sits at a student’s desk, head down. A shimmering arachnid scuttles across the chalkboard, leaving faint trails in the dust.\",\n\"38\":\"A carnival at twilight, colorful lights blinking. A 35-year-old man in a frayed hoodie stands alone near the Ferris wheel. A tiny iridescent arachnid performs flips along the railing, glowing under neon bulbs.\",\n\"39\":\"A morgue lit by cold white light. A 35-year-old man with sagging jeans stares at a covered body on the table. A shimmering arachnid crawls across the sheet, its legs tapping softly in the silence.\",\n\"40\":\"A snowy street under a flickering lamp. A 35-year-old man with disheveled hair pulls his hoodie tighter against the cold. On a nearby fence, a tiny iridescent arachnid skitters across the frost.\",\n\"41\":\"A museum gallery with marble floors and towering statues. A 35-year-old man in sagging jeans gazes blankly at a painting. On the frame, a shimmering arachnid balances, highlighted by the spotlight.\",\n\"42\":\"A prison cell with peeling paint and iron bars. A 35-year-old man with frayed hoodie sits on the edge of a cot. A tiny iridescent arachnid crawls along the bars, its body glowing faintly in the dim light.\",\n\"43\":\"A desert road under blazing sun. A 35-year-old man in sagging jeans trudges forward, sweat dripping. On a cactus nearby, a shimmering arachnid raises its legs dramatically against the blue sky.\","
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 65,
+      "type": "PromptSchedule",
+      "pos": [
+        -368.1590576171875,
+        -51.350975036621094
+      ],
+      "size": [
+        285.8001708984375,
+        351.1314697265625
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 79
+        },
+        {
+          "name": "current_frame",
+          "type": "INT",
+          "link": 80
+        },
+        {
+          "name": "pre_text",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "app_text",
+          "shape": 7,
+          "type": "STRING",
+          "link": 81
+        },
+        {
+          "name": "pw_a",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "name": "pw_b",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "name": "pw_c",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "name": "pw_d",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "POS",
+          "type": "CONDITIONING",
+          "links": [
+            82
+          ]
+        },
+        {
+          "name": "NEG",
+          "type": "CONDITIONING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_fizznodes",
+        "ver": "1.0.2",
+        "Node name for S&R": "PromptSchedule",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "text": true,
+            "max_frames": true,
+            "print_output": true
+          }
+        }
+      },
+      "widgets_values": [
+        "\"0\" :\"\",\n\"11\" :\"\",\n\"23\" :\"\",\n\"35\" :\"\",\n\"47\" :\"\",\n\"59\" :\"\",\n\"71\" :\"\",\n\"83\" :\"\",\n\"95\" :\"\",\n\"107\" :\"\",\n\"119\" :\"\"\n",
+        120,
+        false
+      ]
+    },
+    {
+      "id": 61,
+      "type": "AutoPromptSchedule",
+      "pos": [
+        -776.47802734375,
+        -36.999778747558594
+      ],
+      "size": [
+        378.7080383300781,
+        224.6450958251953
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "schedule_text",
+          "type": "STRING",
+          "links": [
+            77,
+            83
+          ]
+        },
+        {
+          "name": "info_text",
+          "type": "STRING",
+          "links": [
+            85
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AutoPromptSchedule",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "text": true,
+            "file_path": true
+          }
+        }
+      },
+      "widgets_values": [
+        "A 35-year-old man with disheveled black hair, frayed hoodie, and sagging jeans slumps on a stained couch. The room is a chaotic single apartment littered with empty coffee cups, crumpled paper, and a flickering desk lamp casting long shadows over a half-finished spreadsheet.\n\nA 50-year-old woman with sharp cheekbones, slicked-back silver hair, and a tailored blazer stands at the front of a fluorescent-lit office. Her arms are crossed as a crowd of stunned employees stares at a poster reading “Dance-Off: Infinite Coffee.”\n\nA 35-year-old man with disheveled black hair, frayed hoodie, and sagging jeans stumbles backward in an empty conference room. His legs wobble like tree trunks under the harsh glare of a single overhead bulb as he kicks a chair into a pile of files.\n\nA 28-year-old employee with neon-green sneakers and a tie-dye shirt freezes mid-laugh, eyes wide. Sunlight streams through blinds as she watches a man’s awkward “funeral march” at a team-building event, confetti falling in slow motion around them.\n\nA 35-year-old man with disheveled black hair, pale face, and rumpled clothes lies on a hospital bed. A bored nurse scribbles notes while he stares at the ceiling. A flickering fluorescent light buzzes overhead as his hand trembles near a sign reading “Mild Existential Crisis.”\n\nA tiny creature with iridescent body hair spins a web in midair above a kitchen counter. Sunlight floods through a window, casting golden specks over the scene as it performs a breakdance on a crumb-strewn surface.\n\nA 35-year-old man with disheveled black hair and frayed hoodie crouches near the counter, his face lit by warm afternoon light. His eyes are wide, reflecting an expression caught between confusion and something almost like wonder as he watches a small arachnid’s acrobatics.\n\nA cracked mirror on a dusty wall reflects a man with unshaven jawline and hunched posture. The room is bathed in soft golden hour light, shadows pooling under his feet as he stares at a tiny creature with iridescent body hair, its legs clicking like tiny drumsticks.\n\nA small arachnid leaps into a backflip mid-web, its legs clicking like tiny drumsticks. Dust motes swirl in sunlight streaming through the window, creating a halo effect around its acrobatics on a crumb-strewn kitchen counter.\n\nA cluttered desk fills the background, strewn with coffee-stained papers and a broken laptop. A man with disheveled black hair sits cross-legged on the floor, his frayed hoodie pooling around him. A single shaft of light pierces through dusty curtains, illuminating his face as he watches the tiny creature spin a web above an empty mug.\n\nA 35-year-old man with disheveled black hair and sagging jeans stands in a dimly lit apartment, staring at a cracked mirror that reflects both his tired face and the iridescent shimmer of a small arachnid crawling along the glass. The room hums faintly with a broken fridge in the background.\n\nA hospital corridor stretches into the distance, its linoleum floors reflecting pale light. A 35-year-old man with frayed hoodie shuffles forward, dragging his feet as a tiny iridescent arachnid clings to his shoulder, unnoticed by passing nurses.\n\nA rain-soaked street glistens under a flickering streetlight. A 35-year-old man in sagging jeans and a hoodie trudges through puddles, his hair plastered to his forehead. On his hand, a small creature with shimmering body hair raises its legs like an orchestra conductor.\n\nA cluttered office cubicle filled with sticky notes, empty mugs, and a monitor glowing with spreadsheets. A 35-year-old man with black hair slouches in a swivel chair. From the desk lamp, a tiny iridescent arachnid dangles by a thread, casting a dancing shadow across the keyboard.\n\nA narrow alley between towering buildings, littered with trash bags and neon graffiti. A 35-year-old man with a frayed hoodie leans against a brick wall, smoking. Above him, a small arachnid with shimmering body hair weaves a glowing web that catches the neon light.\n\nA library lit by the warm glow of green desk lamps. Dust floats in the air as a 35-year-old man with disheveled hair flips through an old book. Across the table, a tiny iridescent arachnid taps its legs rhythmically, as if keeping time with his turning pages.\n\nA laundromat at midnight, machines rumbling. A 35-year-old man with sagging jeans sits on a plastic chair, staring blankly at spinning clothes. A small shimmering arachnid breakdances on top of a humming dryer, lit by fluorescent tubes.\n\nA rooftop under a star-filled sky. A 35-year-old man in a frayed hoodie lies on his back, gazing upward. A tiny iridescent arachnid performs acrobatic flips along the edge of the roof, silhouetted against the moon.\n\nA dimly lit basement cluttered with tools and cardboard boxes. A 35-year-old man with black hair tinkers with a broken radio. Nearby, a small arachnid with shimmering body hair spins a web between two rusty pipes, the strands vibrating like guitar strings.\n\nA subway car rattling through tunnels, fluorescent lights flickering. A 35-year-old man with disheveled hoodie slouches in his seat. On the metal pole beside him, a tiny iridescent arachnid crawls upward, its movements mirrored in the smudged window.\n\nA crowded diner at dawn, steam rising from coffee mugs. A 35-year-old man with sagging jeans and frayed hoodie sits in a booth, eyes half-shut. Across from him, a small arachnid with shimmering body hair taps on the Formica table like impatient fingers.\n\nA deserted playground under orange streetlights. A 35-year-old man with disheveled hair pushes an empty swing slowly. On the chain, a tiny iridescent arachnid balances carefully, its body glowing faintly in the night.\n\nA bathroom lit by a single bare bulb, mirror fogged with steam. A 35-year-old man in sagging jeans wipes his face with a towel. On the sink, a small shimmering arachnid performs a spin atop a toothpaste cap.\n\nA cluttered recording studio filled with tangled cables and glowing equipment. A 35-year-old man in a frayed hoodie taps on a keyboard, lost in thought. On the mixing desk, a tiny iridescent arachnid dances to the blinking rhythm of LED lights.\n\nA dusty attic filled with boxes and old clothes. A 35-year-old man with disheveled black hair opens a trunk. A shimmering arachnid leaps out, landing gracefully on a stack of yellowed newspapers, legs spread like a gymnast.\n\nA candlelit church with cracked pews. A 35-year-old man in sagging jeans kneels at the altar, hands clasped. A small shimmering arachnid scuttles across the open Bible, illuminated by the flickering flame.\n\nA rainy bus stop late at night. A 35-year-old man with hoodie pulled tight sits slumped on a bench. A tiny iridescent arachnid balances on the rim of the trash can beside him, its body glowing in the reflected streetlight.\n\nA grocery store aisle under harsh neon lights. A 35-year-old man with sagging jeans stares at rows of cereal boxes. On a shelf edge, a small shimmering arachnid breakdances on a price tag.\n\nA windswept beach under a gray sky. A 35-year-old man with disheveled hair stands barefoot at the shoreline. At his feet, a tiny iridescent arachnid skitters along the wet sand, leaving faint patterns washed away by waves.\n\nA bedroom with curtains drawn shut, faint morning light seeping in. A 35-year-old man in a frayed hoodie lies sprawled across unmade sheets. On the nightstand, a small shimmering arachnid spins a web between a lamp and an alarm clock.\n\nAn abandoned warehouse with shattered windows. A 35-year-old man in sagging jeans walks through dust and debris. Above him, a shimmering arachnid swings gracefully on a thread, spotlighted by a shaft of sunlight.\n\nA fast-food restaurant at closing time, chairs stacked on tables. A 35-year-old man in a frayed hoodie mops the floor. On the counter, a tiny iridescent arachnid flips across discarded ketchup packets.\n\nA cinema lobby filled with glowing posters. A 35-year-old man with disheveled hair buys popcorn from a tired clerk. On the popcorn machine, a small shimmering arachnid scuttles across the glass, its shadow magnified by the light inside.\n\nA parking garage lit by cold fluorescent tubes. A 35-year-old man in sagging jeans leans against a pillar. Nearby, a tiny iridescent arachnid dangles from a thread, swinging like a pendulum above an oil stain.\n\nA crowded train station, the announcement board flickering. A 35-year-old man with frayed hoodie waits on a bench. At his feet, a shimmering arachnid performs spins across the tiled floor, unnoticed by commuters.\n\nA forest clearing at dusk, fireflies glowing. A 35-year-old man with disheveled hair sits on a fallen log. A small iridescent arachnid twirls on a mushroom cap, lit by soft bioluminescence.\n\nA gas station at midnight, neon sign buzzing. A 35-year-old man in sagging jeans fills his car. On the pump handle, a tiny shimmering arachnid balances precariously, illuminated by the harsh blue light.\n\nA classroom filled with dusty chalkboards and overturned desks. A 35-year-old man with disheveled hair sits at a student’s desk, head down. A shimmering arachnid scuttles across the chalkboard, leaving faint trails in the dust.\n\nA carnival at twilight, colorful lights blinking. A 35-year-old man in a frayed hoodie stands alone near the Ferris wheel. A tiny iridescent arachnid performs flips along the railing, glowing under neon bulbs.\n\nA morgue lit by cold white light. A 35-year-old man with sagging jeans stares at a covered body on the table. A shimmering arachnid crawls across the sheet, its legs tapping softly in the silence.\n\nA snowy street under a flickering lamp. A 35-year-old man with disheveled hair pulls his hoodie tighter against the cold. On a nearby fence, a tiny iridescent arachnid skitters across the frost.\n\nA museum gallery with marble floors and towering statues. A 35-year-old man in sagging jeans gazes blankly at a painting. On the frame, a shimmering arachnid balances, highlighted by the spotlight.\n\nA prison cell with peeling paint and iron bars. A 35-year-old man with frayed hoodie sits on the edge of a cot. A tiny iridescent arachnid crawls along the bars, its body glowing faintly in the dim light.\n\nA desert road under blazing sun. A 35-year-old man in sagging jeans trudges forward, sweat dripping. On a cactus nearby, a shimmering arachnid raises its legs dramatically against the blue sky.",
+        "",
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      30,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      47,
+      30,
+      0,
+      31,
+      0,
+      "MODEL"
+    ],
+    [
+      51,
+      27,
+      0,
+      31,
+      3,
+      "LATENT"
+    ],
+    [
+      52,
+      31,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      54,
+      30,
+      1,
+      33,
+      0,
+      "CLIP"
+    ],
+    [
+      55,
+      33,
+      0,
+      31,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      57,
+      35,
+      0,
+      31,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      77,
+      61,
+      0,
+      63,
+      0,
+      "STRING"
+    ],
+    [
+      79,
+      30,
+      1,
+      65,
+      0,
+      "CLIP"
+    ],
+    [
+      80,
+      43,
+      0,
+      65,
+      1,
+      "INT"
+    ],
+    [
+      81,
+      60,
+      0,
+      65,
+      3,
+      "STRING"
+    ],
+    [
+      82,
+      65,
+      0,
+      35,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      83,
+      61,
+      0,
+      65,
+      8,
+      "STRING"
+    ],
+    [
+      85,
+      61,
+      1,
+      67,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "prompt schedule",
+      "bounding": [
+        -371.51507568359375,
+        -263.8353576660156,
+        311.5035400390625,
+        648.6434326171875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "sampler",
+      "bounding": [
+        -49.513427734375,
+        -264.0909423828125,
+        350.27581787109375,
+        697.1338500976562
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "prompting",
+      "bounding": [
+        -795.4776611328125,
+        -265.935791015625,
+        415.2554626464844,
+        823.5454711914062
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Load",
+      "bounding": [
+        -792.1593017578125,
+        -455.56170654296875,
+        335,
+        181.60000610351562
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7272727272727345,
+      "offset": [
+        1713.567221084507,
+        605.5498904457087
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.25.8",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
