@@ -28,5 +28,6 @@ A picture says more than a thousand words.
 ## Example Workflow
 The example workflow uses the Prompt Schedule Node from Fizzledorf. It is a batch workflow to generate multiple images from the list of prompts in one go. Paste in your prompt list, turn up the number of runs, press run.
 
-![Explanation](./example workflows/auto prompt schedule example workflow.png)
+![Explanation](./example_workflows/auto_prompt_schedule_example_workflow.png)
+
 
