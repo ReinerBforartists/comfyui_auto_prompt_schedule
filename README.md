@@ -21,7 +21,10 @@ Note that the Auto prompt schedule node does NOT appear in the Comfy manager yet
 ## Usage
 
 
-coming soon
+img/explanation.jpg
+
+![Explanation](./img/explanation.jpg)
+
 
 
 
