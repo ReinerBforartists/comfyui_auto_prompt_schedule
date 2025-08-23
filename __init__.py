@@ -1,4 +1,4 @@
-# AutoPromptSchedule Node for ComfyUI
+# Auto Prompt Schedule Node for ComfyUI
 # Copyright (C) 2025 Reiner Prokein
 #
 # This program is free software: you can redistribute it and/or modify

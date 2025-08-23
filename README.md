@@ -16,7 +16,7 @@ To install Auto Prompt Schedule in addition to an existing installation of Comfy
 2. Type `git clone https://github.com/ReinerBforartists/comfyui_auto_prompt_schedule`. Wait for the download to finish.
 3. Restart ComfyUI
 
-Note that the Auto prompt schedule node does NOT appear in the Comfy manager yet. You can find it in the Text category. Or by a double click and type in Auto Prompt.
+The node appears in the category Text. And it is Auto Prompt Schedule
 
 ## Usage
 
