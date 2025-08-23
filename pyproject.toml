@@ -1,0 +1,14 @@
+[project]
+name = "ComfyUI Auto Prompt Schedule"
+description = "Caclulate a list of Keyframes from a text list to generate an input for the Prompt Schedule node"
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/ReinerBforartists/comfyui_auto_prompt_schedule"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "ReinerBforartists"
+DisplayName = "ComfyUI_Auto_Prompt_Schedule"
+Icon = ""
