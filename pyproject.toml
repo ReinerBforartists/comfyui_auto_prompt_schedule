@@ -1,6 +1,6 @@
 [project]
 name = "ComfyUI Auto Prompt Schedule"
-description = "Caclulate a list of Keyframes from a text list to generate an input for the Prompt Schedule node"
+description = "Calculate a list of Keyframes from a text list to generate an input for the Prompt Schedule node"
 version = "1.0.0"
 license = "LICENSE"
 
