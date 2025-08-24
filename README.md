@@ -12,11 +12,17 @@ Auto Prompt Schedule helps you to generate the list of keyframes. So that you do
 
 To install Auto Prompt Schedule in addition to an existing installation of ComfyUI, you need to follow the following steps:
 
+### Manually
+
 1. goto `ComfyUI/custom_nodes` dir in terminal(cmd). No witchcraft. Simply navigate to the folder in the windows explorer. Then in the explorer header type in cmd, and the terminal will open in this path.
 2. Type `git clone https://github.com/ReinerBforartists/comfyui_auto_prompt_schedule`. Wait for the download to finish.
 3. Restart ComfyUI
 
-The node appears in the category Text. And it is Auto Prompt Schedule
+### In the Manager
+1. Search for the Auto Prompt Schedule node in the Custom Nodes manager. 
+2. Install
+
+The node appears in the category Text. And is called Auto Prompt Schedule.
 
 ## Usage
 
@@ -36,6 +42,7 @@ The image is the workflow. Right click, save target as ...
 
 24.08.2025 - updated the example workflow, no change at the code
 22.08.2025 - Version 1.0
+
 
 
 
