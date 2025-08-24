@@ -32,5 +32,10 @@ The example workflow uses the Prompt Schedule Node from Fizzledorf. It is a batc
 
 The image is the workflow. Right click, save target as ...
 
+## History
+
+24.08.2025 - updated the example workflow, no change at the code
+22.08.2025 - Version 1.0
+
 
 

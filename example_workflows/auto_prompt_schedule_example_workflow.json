@@ -5,48 +5,6 @@
   "last_link_id": 85,
   "nodes": [
     {
-      "id": 60,
-      "type": "DF_Text_Box",
-      "pos": [
-        -785.4776611328125,
-        -192.33578491210938
-      ],
-      "size": [
-        390.2306823730469,
-        114.83470153808594
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            81
-          ]
-        }
-      ],
-      "title": "Text Box - Style",
-      "properties": {
-        "cnr_id": "derfuu_comfyui_moddednodes",
-        "ver": "1.0.1",
-        "Node name for S&R": "DF_Text_Box",
-        "ue_properties": {
-          "version": "7.0.1",
-          "widget_ue_connectable": {
-            "Text": true
-          }
-        }
-      },
-      "widgets_values": [
-        "comic, anime, sketchy fantasy comic concept art, loose dynamic brush strokes, bold expressive inking, energetic messy lines, painterly texture, strong colors, dramatic lighting,  epic fantasy scene, cinematic composition, raw unfinished digital painting style"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 30,
       "type": "CheckpointLoaderSimple",
       "pos": [
@@ -58,7 +16,7 @@
         98
       ],
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -289,7 +247,7 @@
         254.62852478027344
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -366,7 +324,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -397,7 +355,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -428,7 +386,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -546,7 +504,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -724,7 +682,7 @@
         106
       ],
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -770,7 +728,7 @@
         224.6450958251953
       ],
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -791,6 +749,8 @@
         }
       ],
       "properties": {
+        "aux_id": "ReinerBforartists/comfyui_auto_prompt_schedule",
+        "ver": "02b8c32980afb90650c3cd5bd3825a05a257e8d9",
         "Node name for S&R": "AutoPromptSchedule",
         "ue_properties": {
           "version": "7.0.1",
@@ -822,7 +782,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -851,7 +811,7 @@
         82.62091064453125
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -895,7 +855,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -912,6 +872,48 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 60,
+      "type": "DF_Text_Box",
+      "pos": [
+        -785.4776611328125,
+        -192.33578491210938
+      ],
+      "size": [
+        390.2306823730469,
+        114.83470153808594
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            81
+          ]
+        }
+      ],
+      "title": "Text Box - Style",
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "1.0.1",
+        "Node name for S&R": "DF_Text_Box",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "Text": true
+          }
+        }
+      },
+      "widgets_values": [
+        ", comic, anime, sketchy fantasy comic concept art, loose dynamic brush strokes, bold expressive inking, energetic messy lines, painterly texture, strong colors, dramatic lighting,  epic fantasy scene, cinematic composition, raw unfinished digital painting style"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -1095,13 +1097,13 @@
     "ds": {
       "scale": 0.8800000000000089,
       "offset": [
-        1523.968317035128,
-        736.8901356370427
+        1561.110418146306,
+        814.5390569513494
       ]
     },
+    "frontendVersion": "1.25.9",
     "ue_links": [],
     "links_added_by_ue": [],
-    "frontendVersion": "1.25.8",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
